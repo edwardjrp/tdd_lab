@@ -43,13 +43,18 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.2.1'
-
   gem 'capybara', '~> 2.4.4'
-
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner', '~> 1.4.1'
+  gem 'rack-test', '~> 0.6.3'
 end
+
 
 
 gem 'haml', '~> 4.0.6'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'autoprefixer-rails', '~> 5.1.11'
 gem 'simple_form', '~> 3.1.0'
+#To do example of testing a rack sinatra app
+gem 'sinatra', '~> 1.4.6'

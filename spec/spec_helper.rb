@@ -16,6 +16,7 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -29,6 +30,7 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    expectations.syntax = :expect
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
@@ -38,11 +40,12 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+    mocks.syntax = :expect
   end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
-=begin
+#=begin
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
   # `:focus` metadata. When nothing is tagged with `:focus`, all examples
@@ -83,5 +86,23 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
-=end
+#=end
+
+  #config.include Rack::Test::Methods
+  #config.include FactoryGirl::Syntax::Methods
+
+  # Also :example, :context are valid params for the callbacks events
+  #The :suite is only used for global callbacks in the rspec spec_helper configuration file
+  #Executed globally after each test
+  # config.after(:each) {
+  #   puts 'I just ran the test(s).'
+  # }
+
+  #Executed globally before for the whole suite
+  #Also to perform any type of operation like notificacions, emails, messages before
+  #running the entire tests suite
+  # config.before(:suite) {
+  #   # puts 'Welcome!'
+  # }
+
 end
